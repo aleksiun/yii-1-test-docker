@@ -1,2 +1,32 @@
 FROM php:7.4.3-apache
-RUN docker-php-ext-install mysqli pdo pdo_mysql
+
+RUN apt-get update \
+    && apt-get -y --no-install-recommends install \
+        apt-utils \
+        libzip-dev \
+        libxml2-dev \
+        gnupg \
+        apt-transport-https \
+        libpng-dev
+
+RUN apt-get -y install libxml2-dev
+
+RUN apt-get -y install libpq-dev
+
+RUN apt-get -y install libmcrypt-dev
+
+RUN docker-php-ext-install mysqli pdo pdo_mysql gd pgsql pdo_pgsql soap
+
+RUN pecl install mcrypt-1.0.4 && docker-php-ext-enable mcrypt
+
+# ... 
+RUN apt-get update && apt-get install -y \
+    libmemcached-dev \
+    curl
+# ... 
+
+# Install APCu and APC backward compatibility
+RUN pecl install apcu \
+    && pecl install apcu_bc-1.0.3 \
+    && docker-php-ext-enable apcu --ini-name 10-docker-php-ext-apcu.ini \
+    && docker-php-ext-enable apc --ini-name 20-docker-php-ext-apc.ini
