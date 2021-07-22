@@ -7,26 +7,30 @@ RUN apt-get update \
         libxml2-dev \
         gnupg \
         apt-transport-https \
-        libpng-dev
-
-RUN apt-get -y install libxml2-dev
-
-RUN apt-get -y install libpq-dev
-
-RUN apt-get -y install libmcrypt-dev
+        libpng-dev \
+        curl \
+        libpq-dev \
+        libmcrypt-dev \
+        libmemcached-dev
 
 RUN docker-php-ext-install mysqli pdo pdo_mysql gd pgsql pdo_pgsql soap
 
 RUN pecl install mcrypt-1.0.4 && docker-php-ext-enable mcrypt
 
-# ... 
-RUN apt-get update && apt-get install -y \
-    libmemcached-dev \
-    curl
-# ... 
 
 # Install APCu and APC backward compatibility
 RUN pecl install apcu \
     && pecl install apcu_bc-1.0.3 \
     && docker-php-ext-enable apcu --ini-name 10-docker-php-ext-apcu.ini \
     && docker-php-ext-enable apc --ini-name 20-docker-php-ext-apc.ini
+
+#Memcached Installation
+RUN apt-get -y install libz-dev libmemcached-dev libmemcached11 libmemcachedutil2 build-essential \
+&& pecl install memcached \
+&& echo extension=memcached.so >> /usr/local/etc/php/conf.d/memcached.ini \
+&& apt-get remove -y build-essential libmemcached-dev libz-dev \
+&& apt-get autoremove -y \
+&& apt-get clean \
+&& rm -rf /tmp/pear
+
+RUN service apache2 restart
