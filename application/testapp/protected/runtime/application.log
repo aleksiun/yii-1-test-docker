@@ -1,0 +1,33 @@
+2021/07/23 12:56:37 [error] [exception.Error] Error: Call to undefined function imagettfbbox() in /var/www/html/web/widgets/captcha/CCaptchaAction.php:208
+Stack trace:
+#0 /var/www/html/web/widgets/captcha/CCaptchaAction.php(111): CCaptchaAction->renderImage('rmzownh')
+#1 /var/www/html/web/CController.php(300): CCaptchaAction->run()
+#2 /var/www/html/web/CController.php(278): CController->runAction(Object(CCaptchaAction))
+#3 /var/www/html/web/CController.php(257): CController->runActionWithFilters(Object(CCaptchaAction), Array)
+#4 /var/www/html/web/CWebApplication.php(332): CController->run('captcha')
+#5 /var/www/html/web/CWebApplication.php(120): CWebApplication->runController('site/captcha')
+#6 /var/www/html/base/CApplication.php(134): CWebApplication->processRequest()
+#7 /var/www/html/testapp/index.php(11): CApplication->run()
+#8 {main} REQUEST_URI=/testapp/index.php?r=site/captcha
+2021/07/23 13:20:31 [error] [exception.Error] Error: Call to undefined function imagettfbbox() in /var/www/html/web/widgets/captcha/CCaptchaAction.php:208
+Stack trace:
+#0 /var/www/html/web/widgets/captcha/CCaptchaAction.php(111): CCaptchaAction->renderImage('rmzownh')
+#1 /var/www/html/web/CController.php(300): CCaptchaAction->run()
+#2 /var/www/html/web/CController.php(278): CController->runAction(Object(CCaptchaAction))
+#3 /var/www/html/web/CController.php(257): CController->runActionWithFilters(Object(CCaptchaAction), Array)
+#4 /var/www/html/web/CWebApplication.php(332): CController->run('captcha')
+#5 /var/www/html/web/CWebApplication.php(120): CWebApplication->runController('site/captcha')
+#6 /var/www/html/base/CApplication.php(134): CWebApplication->processRequest()
+#7 /var/www/html/testapp/index.php(11): CApplication->run()
+#8 {main} REQUEST_URI=/testapp/index.php?r=site/captcha
+2021/07/23 13:20:32 [error] [exception.Error] Error: Call to undefined function imagettfbbox() in /var/www/html/web/widgets/captcha/CCaptchaAction.php:208
+Stack trace:
+#0 /var/www/html/web/widgets/captcha/CCaptchaAction.php(111): CCaptchaAction->renderImage('rmzownh')
+#1 /var/www/html/web/CController.php(300): CCaptchaAction->run()
+#2 /var/www/html/web/CController.php(278): CController->runAction(Object(CCaptchaAction))
+#3 /var/www/html/web/CController.php(257): CController->runActionWithFilters(Object(CCaptchaAction), Array)
+#4 /var/www/html/web/CWebApplication.php(332): CController->run('captcha')
+#5 /var/www/html/web/CWebApplication.php(120): CWebApplication->runController('site/captcha')
+#6 /var/www/html/base/CApplication.php(134): CWebApplication->processRequest()
+#7 /var/www/html/testapp/index.php(11): CApplication->run()
+#8 {main} REQUEST_URI=/testapp/index.php?r=site/captcha

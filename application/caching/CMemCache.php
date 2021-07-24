@@ -64,7 +64,7 @@ class CMemCache extends CCache
 	 * {@link http://pecl.php.net/package/memcache memcache}.
 	 * @since 1.0.6
 	 */
-	public $useMemcached=false;
+	public $useMemcached=true;
 	/**
 	 * @var Memcache the Memcache instance
 	 */

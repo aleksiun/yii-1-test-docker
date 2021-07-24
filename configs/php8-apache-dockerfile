@@ -1,2 +1,4 @@
 FROM php:8.0-apache
+#TO DO: check php 8.x compatibility with Yii 1.0
+
 RUN docker-php-ext-install mysqli pdo pdo_mysql

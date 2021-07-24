@@ -1,5 +1,5 @@
-FROM php:7.4.3-apache
-
+#FROM php:7.4.3-apache
+#TO DO: check php 7.x compatibility with Yii 1.0
 RUN apt-get update \
     && apt-get -y --no-install-recommends install \
         apt-utils \
@@ -11,26 +11,30 @@ RUN apt-get update \
         curl \
         libpq-dev \
         libmcrypt-dev \
-        libmemcached-dev
+        libmemcached-dev \
+        wget \
+        git \
+        zlib1g-dev
 
 RUN docker-php-ext-install mysqli pdo pdo_mysql gd pgsql pdo_pgsql soap
 
-RUN pecl install mcrypt-1.0.4 && docker-php-ext-enable mcrypt
+# Install mcrypt
+RUN docker-php-ext-configure mcrypt && docker-php-ext-install mcrypt
 
-
-# Install APCu and APC backward compatibility
-RUN pecl install apcu \
-    && pecl install apcu_bc-1.0.3 \
-    && docker-php-ext-enable apcu --ini-name 10-docker-php-ext-apcu.ini \
-    && docker-php-ext-enable apc --ini-name 20-docker-php-ext-apc.ini
+RUN pecl install apcu-4.0.11 && docker-php-ext-enable apcu
 
 #Memcached Installation
-RUN apt-get -y install libz-dev libmemcached-dev libmemcached11 libmemcachedutil2 build-essential \
-&& pecl install memcached \
-&& echo extension=memcached.so >> /usr/local/etc/php/conf.d/memcached.ini \
-&& apt-get remove -y build-essential libmemcached-dev libz-dev \
-&& apt-get autoremove -y \
-&& apt-get clean \
-&& rm -rf /tmp/pear
+RUN apt-get update && apt-get install -y libmemcached-dev zlib1g-dev \
+    && pecl install memcached-2.2.0 \
+    && docker-php-ext-enable memcached
+
+#Test only
+#cd /usr/src/
+#wget http://pecl.php.net/get/memcache-2.2.4.tgz
+#tar -zxvf memcache-2.2.4.tgz
+#cd memcache-2.2.4
+
+
+#RUN pecl install memcache
 
 RUN service apache2 restart
