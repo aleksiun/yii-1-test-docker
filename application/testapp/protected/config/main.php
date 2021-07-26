@@ -6,7 +6,7 @@
 // CWebApplication properties can be configured here.
 return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
-    'name' => 'My Web Application',
+    'name' => 'My Web Test Application',
     // preloading 'log' component
     'preload' => array('log'),
     // autoloading model and component classes
@@ -31,9 +31,11 @@ return array(
         ),
         // uncomment the following to set up database
         'db' => array(
-            'connectionString' => 'mysql:host=localhost;dbname=testapp',
-            'username' => 'marek',
-            'password' => 'test1234',
+            'class'=>'CDbConnection',
+            'connectionString'=>'mysql:host=172.18.0.2;charset=utf8;dbname=testapp',
+            'username'=>'root',
+            'password'=>'secret',
+            'emulatePrepare'=>true,  // needed by some MySQL installations
         ),
     ),
     // application-level parameters that can be accessed

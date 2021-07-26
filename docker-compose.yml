@@ -1,6 +1,9 @@
 version: "3.7"
+
 services:
+
   web-server:
+    container_name: webserver
     build:
       dockerfile: ./configs/php5-apache-dockerfile
       context: .
@@ -9,16 +12,22 @@ services:
       - "./application/:/var/www/html/"
     ports:
       - "80:80"
+
   mysql-server:
-    image: mysql:8.0.19
+    container_name: mysqlserver
+    image: mysql:5.7.35
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: secret
     volumes:
       - mysql-data:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - 3306:3306
 
   phpmyadmin:
-    image: phpmyadmin/phpmyadmin:5.0.1
+    container_name: phpmyadmin
+    image: phpmyadmin/phpmyadmin:5.1.1
     restart: always
     environment:
       PMA_HOST: mysql-server
