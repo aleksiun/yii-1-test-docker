@@ -27,6 +27,7 @@ Now DB IP must be set in "application/testapp/protected/config/main.php" and "ap
 "localhost" and "127.0.0.1" not working.
 
 TO DO:
+- Optimal Docker setup for Yii 
 - Memcache/Memcached fix 
 - Docker network IP fix
 - More test pages
