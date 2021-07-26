@@ -22,6 +22,7 @@ Locations:
 
 
 Docker network to fix:
+
 Now DB IP must be set in "application/testapp/protected/config/main.php" and "application/ma-debug/MAdbTest.php" files.
 "localhost" and "127.0.0.1" not working.
 
