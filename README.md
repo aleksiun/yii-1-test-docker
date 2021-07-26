@@ -14,15 +14,11 @@ Docker environment:
 
 Locations:
 
-"configs/php5-apache-dockerfile" - PHP Dockerfile
-
-"application/testapp" - Yii test application
-
-"application/ma-debug" - PHP Info and DB connection test files
-
-"db-example/testapp.sql" - Official tutorial DB dump
-
-"application/testapp/protected/config/main.php" - Yii config (incl. DB IP)
+- "configs/php5-apache-dockerfile" - PHP Dockerfile
+- "application/testapp" - Yii test application
+- "application/ma-debug" - PHP Info and DB connection test files
+- "db-example/testapp.sql" - Official tutorial DB dump
+- "application/testapp/protected/config/main.php" - Yii config (incl. DB IP)
 
 
 Docker network to fix:
