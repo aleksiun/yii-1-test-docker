@@ -12,10 +12,11 @@
 div.yiiForm
 {
 	border: 2px solid #B7DDF2;
-	background: #EBF4FB;
+	background: #444;
 	margin: 0;
 	padding: 5px;
 	width: 550px;
+        color: white
 }
 
 div.yiiForm label.required
@@ -55,7 +56,7 @@ div.errorSummary ul li
 
 div.yiiForm p.hint
 {
-	color: gray;
+	color: white;
 	font-size: 90%;
 	margin: 0 0 0 110px;
 }
@@ -88,6 +89,7 @@ div.yiiForm div.complex
 {
 	clear: left;
 	padding: 0.25em 0;
+        color: white;
 }
 
 div.yiiForm div.simple label,

@@ -17,7 +17,7 @@ Locations:
 - http://localhost/requirements/index.php - Yii Requirement Checker - now Memcache extension = Failed
 - "configs/php5-apache-dockerfile" - PHP Dockerfile
 - "application/testapp" - Yii test application
-- "application/ma-debug" - PHP Info and DB connection test files
+- "application/testapp/ma-debug" - PHP Info and DB connection test files
 - "db-example/testapp.sql" - Official tutorial DB dump
 - "application/testapp/protected/config/main.php" - Yii config (incl. DB IP)
 

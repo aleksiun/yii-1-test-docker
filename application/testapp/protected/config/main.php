@@ -32,7 +32,7 @@ return array(
         // uncomment the following to set up database
         'db' => array(
             'class'=>'CDbConnection',
-            'connectionString'=>'mysql:host=172.18.0.2;charset=utf8;dbname=testapp',
+            'connectionString'=>'mysql:host=172.18.0.3;charset=utf8;dbname=testapp',
             'username'=>'root',
             'password'=>'secret',
             'emulatePrepare'=>true,  // needed by some MySQL installations
