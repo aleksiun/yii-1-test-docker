@@ -67,7 +67,11 @@ class UserController extends CController
 		$model=new User;
 		if(isset($_POST['User']))
 		{
+                    
 			$model->attributes=$_POST['User'];
+                        $md5password=md5($_POST['User']['password']);
+                        $model->setAttribute('password', $md5password);
+
 			if($model->save())
 				$this->redirect(array('show','id'=>$model->id));
 		}
