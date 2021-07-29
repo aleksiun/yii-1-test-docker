@@ -86,7 +86,7 @@
 class CUrlManager extends CApplicationComponent
 {
 	const CACHE_KEY='Yii.CUrlManager.rules';
-	const GET_FORMAT='get';
+	const GET_FORMAT='path';
 	const PATH_FORMAT='path';
 
 	/**
@@ -101,7 +101,7 @@ class CUrlManager extends CApplicationComponent
 	/**
 	 * @var boolean whether to show entry script name in the constructed URL. Defaults to true.
 	 */
-	public $showScriptName=true;
+	public $showScriptName=false;
 	/**
 	 * @var boolean whether to append GET parameters to the path info part. Defaults to true.
 	 * This property is only effective when {@link urlFormat} is 'path' and is mainly used when
