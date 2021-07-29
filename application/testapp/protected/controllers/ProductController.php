@@ -32,16 +32,16 @@ class ProductController extends CController
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'list' and 'show' actions
-				'actions'=>array('list','show'),
-				'users'=>array('*'),
-			),
+//			array('allow',  // allow all users to perform 'list' and 'show' actions
+//				'actions'=>array('list','show'),
+//				'users'=>array('*'),
+//			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('list', 'show', 'create','update'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('list', 'show', 'create','update', 'admin','delete'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
