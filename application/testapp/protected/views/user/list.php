@@ -21,6 +21,9 @@
 <?php echo CHtml::encode($model->getAttributeLabel('email')); ?>:
 <?php echo CHtml::encode($model->email); ?>
 <br/>
+<?php echo CHtml::encode($model->getAttributeLabel('role')); ?>:
+<?php echo CHtml::encode($model->role); ?>
+<br/>
 
 </div>
 <?php endforeach; ?>

@@ -36,13 +36,13 @@ class UserController extends CController
 //				'actions'=>array('list','show'),
 //				'users'=>array('*'),
 //			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('list', 'show', 'create','update'),
-				'users'=>array('@'),
-			),
+//			array('allow', // allow authenticated user to perform 'create' and 'update' actions
+//				'actions'=>array('list', 'show', 'create','update'),
+//				'users'=>array('@'),
+//			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('list', 'show', 'create','update', 'admin','delete'),
-				'users'=>array('admin'),
+				'roles'=>array('administrator'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
@@ -67,7 +67,6 @@ class UserController extends CController
 		$model=new User;
 		if(isset($_POST['User']))
 		{
-                    
 			$model->attributes=$_POST['User'];
                         $md5password=md5($_POST['User']['password']);
                         $model->setAttribute('password', $md5password);

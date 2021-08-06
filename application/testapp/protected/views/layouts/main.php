@@ -17,8 +17,8 @@
 <?php $this->widget('application.components.MainMenu',array(
 	'items'=>array(
 		array('label'=>'Home', 'url'=>array('/site/index')),
-		array('label'=>'User', 'url'=>array('/user'), 'visible'=>!Yii::app()->user->isGuest),
-		array('label'=>'Product', 'url'=>array('/product'), 'visible'=>!Yii::app()->user->isGuest),                
+		array('label'=>'User', 'url'=>array('/user'), 'visible'=>Yii::app()->user->userIsAdmin()),
+		array('label'=>'Product', 'url'=>array('/product'), 'visible'=>Yii::app()->user->userIsAdmin() || Yii::app()->user->userIsSeller()),  
                 array('label'=>'Contact', 'url'=>array('/site/contact')),
 		array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 		array('label'=>'Logout', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
@@ -36,7 +36,9 @@ Copyright &copy; 2009 by My Company.<br/>
 All Rights Reserved.<br/>
 <?php echo Yii::powered(); ?>
 </div><!-- footer -->
-
+<?php 
+//var_dump(Yii::app()->user->getState('role'));
+?>
 </div><!-- page -->
 </body>
 

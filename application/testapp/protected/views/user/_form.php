@@ -20,6 +20,10 @@ Fields with <span class="required">*</span> are required.
 <?php echo CHtml::activeLabelEx($model,'email'); ?>
 <?php echo CHtml::activeTextField($model,'email',array('size'=>60,'maxlength'=>128)); ?>
 </div>
+<div class="simple">
+<?php echo CHtml::activeLabelEx($model,'role'); ?>
+<?php echo CHtml::activeTextField($model,'role',array('size'=>60,'maxlength'=>255)); ?>
+</div>
 
 <div class="action">
 <?php echo CHtml::submitButton($update ? 'Save' : 'Create'); ?>

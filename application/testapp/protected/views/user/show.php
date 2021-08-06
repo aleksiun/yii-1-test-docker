@@ -28,4 +28,10 @@
     <td><?php echo CHtml::encode($model->email); ?>
 </td>
 </tr>
+<tr>
+	<th class="label"><?php echo CHtml::encode($model->getAttributeLabel('role')); ?>
+</th>
+    <td><?php echo CHtml::encode($model->role); ?>
+</td>
+</tr>
 </table>

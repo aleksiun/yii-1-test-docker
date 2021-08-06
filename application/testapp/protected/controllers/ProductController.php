@@ -36,14 +36,24 @@ class ProductController extends CController
 //				'actions'=>array('list','show'),
 //				'users'=>array('*'),
 //			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('list', 'show', 'create','update'),
-				'users'=>array('@'),
-			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
+//			array('allow', // allow authenticated user to perform 'create' and 'update' actions
+//				'actions'=>array('list', 'show', 'create','update'),
+//				'users'=>array('@'),
+//			),
+//			array('allow', // allow admin user to perform 'admin' and 'delete' actions
+//				'actions'=>array('list', 'show', 'create','update', 'admin','delete'),
+//				'users'=>array('admin'),
+//			),
+                        array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('list', 'show', 'create','update', 'admin','delete'),
-				'users'=>array('admin'),
+				'roles'=>array('administrator'),
 			),
+                         array('allow', // allow admin user to perform 'admin' and 'delete' actions
+				'actions'=>array('list', 'show', 'create','update'),
+				'roles'=>array('seller'),
+			),                   
+                    
+                    
 			array('deny',  // deny all users
 				'users'=>array('*'),
 			),

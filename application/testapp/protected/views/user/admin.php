@@ -12,6 +12,7 @@
     <th><?php echo $sort->link('username'); ?></th>
     <th><?php echo $sort->link('password'); ?></th>
     <th><?php echo $sort->link('email'); ?></th>
+    <th><?php echo $sort->link('role'); ?></th>
 	<th>Actions</th>
   </tr>
   </thead>
@@ -22,6 +23,7 @@
     <td><?php echo CHtml::encode($model->username); ?></td>
     <td><?php echo CHtml::encode($model->password); ?></td>
     <td><?php echo CHtml::encode($model->email); ?></td>
+    <td><?php echo CHtml::encode($model->role); ?></td>
     <td>
       <?php echo CHtml::link('Update',array('update','id'=>$model->id)); ?>
       <?php echo CHtml::linkButton('Delete',array(
